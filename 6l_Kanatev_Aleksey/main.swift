@@ -105,4 +105,4 @@ print(stackQueueForFastFood[2,0] as Any)
 print("\nПытаемся при подсчете обратиться к несуществующему массиву")
 print(stackQueueForFastFood[2,0,3] as Any)
 
-print(" ")
+print("  ")
