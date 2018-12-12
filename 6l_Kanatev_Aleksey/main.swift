@@ -125,6 +125,6 @@ var abc = filteredByClosure(stack: stackQueueForFastFood, closure: {(element: (I
     return element <= 75
 })
 
-print("\nВыведем массив людей, оставшихся после фильтрации по кложеру:")
+print("\nВыведем массив людей, оставшихся после фильтрации по кложеру: ")
 print(abc)
 
