@@ -29,7 +29,9 @@ extension Queue: CustomStringConvertible {
 }
 
 struct Stack<T: Weightable> {
-    private var elements: [T] = []
+    var weight = 0.0
+    
+    var elements: [T] = []
 
     mutating func push(_ element: T) {
         elements.append(element)
@@ -39,6 +41,7 @@ struct Stack<T: Weightable> {
         elements.removeFirst()
     }
     
+
     mutating func filterByMaxWeight(setMaxWeight: Double){
         let maxWeight = setMaxWeight
         var tempArray = [T]()
@@ -106,3 +109,22 @@ print("\nПытаемся при подсчете обратиться к нес
 print(stackQueueForFastFood[2,0,3] as Any)
 
 print("  ")
+
+// создаем функцию фильтрации по кложеру
+func filteredByClosure(stack: Stack<Queue>, closure: (Int) -> Bool) -> [Queue] {
+    var tempArray = [Queue]()
+    for element in stack.elements {
+        if closure(Int(element.weight)) {
+            tempArray.append(element)
+        }
+    }
+    return tempArray
+}
+
+var abc = filteredByClosure(stack: stackQueueForFastFood, closure: {(element: (Int)) -> Bool in
+    return element <= 75
+})
+
+print("\nВыведем массив людей, оставшихся после фильтрации по кложеру:")
+print(abc)
+
